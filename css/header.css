@@ -1,0 +1,53 @@
+* {
+    margin: 0%;
+}
+
+@font-face {
+    font-family: "Cursiva";
+    src: url("fonts/Sofia-Regular.ttf") format("truetype");
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    font-family: "Cursiva";
+    color: rgb(224, 218, 218);
+    height: 7vh;
+}
+
+header img {
+    box-sizing: border-box;
+    height: 7vh;
+    margin-right: 2vh;
+    margin-left: 3vh;
+}
+
+header div {
+    background-color: cadetblue;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#logo {
+    box-sizing: border-box;
+    padding-left: 10%;
+}
+
+#Titulo h1 {
+    width: 100%;
+    text-align: center;
+}
+
+#opciones {
+    display: none;
+}
