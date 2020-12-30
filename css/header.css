@@ -62,7 +62,7 @@ header div {
 /*principal--------------------------------------------*/
 #menu{
     width: 20vw;
-    height: 90vh;
+    height: 95vh;
     position: absolute;
     position: relative;
     background-color:rgba(95, 158, 160, 0.7);
@@ -71,7 +71,7 @@ header div {
     font-family: "Cursiva";
     border-radius: 10px;
     position: fixed;
-    margin-top: 9vh;
+    margin-top: 7vh;
     }
     #menu img{
         width: 100%;
@@ -103,7 +103,7 @@ header div {
         position: absolute;
         width: 10vw;
         right: -10vw;
-        top: 9vh;
+        top: 7vh;
         transition: right .5s ease-in-out;
         border-radius: 5px;
     }
