@@ -23,7 +23,7 @@ header {
     grid-template-columns: 20% 60% 20%;
     font-family: "Cursiva";
     color: rgb(224, 218, 218);
-    height: 7vh;
+    position: relative;
     position: fixed;
     width: 100vw;
    
@@ -56,6 +56,11 @@ header div {
 #btn_opciones {
     display: none;
 }
+#Usuario{
+
+    position: relative;
+    
+    }
 
 
 /* menus desplegables -----------------------------------------------------------------------*/
@@ -70,16 +75,16 @@ header div {
     transition: left 1s ease-in-out;
     font-family: "Cursiva";
     border-radius: 10px;
-    position: fixed;
-    margin-top: 7vh;
+    top: 0%;
     }
     #menu img{
         width: 100%;
+        margin: auto;
     }
     #menu label{
-        width: 20%;
+        width: 15%;
         position: absolute;
-        left: 95%;
+        left: 102%;
         top: 45%;
     }
     #menu li{
@@ -103,7 +108,7 @@ header div {
         position: absolute;
         width: 10vw;
         right: -10vw;
-        top: 7vh;
+        top: 100%;
         transition: right .5s ease-in-out;
         border-radius: 5px;
     }
