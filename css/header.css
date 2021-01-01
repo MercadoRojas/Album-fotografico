@@ -16,6 +16,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     overflow-x: hidden;
+    z-index: 10;
 }
 
 header {
@@ -23,9 +24,11 @@ header {
     grid-template-columns: 20% 60% 20%;
     font-family: "Cursiva";
     color: rgb(224, 218, 218);
+    top: 0;
     position: relative;
     position: fixed;
     width: 100vw;
+    height: auto;
    
 }
 
@@ -68,14 +71,15 @@ header div {
 #menu{
     width: 20vw;
     height: 95vh;
-    position: absolute;
     position: relative;
     background-color:rgba(95, 158, 160, 0.7);
     left: -20vw;
     transition: left 1s ease-in-out;
     font-family: "Cursiva";
     border-radius: 10px;
-    top: 0%;
+    top: 100%;
+    position: absolute;
+    
     }
     #menu img{
         width: 100%;
