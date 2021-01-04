@@ -20,7 +20,7 @@ if (isset($usuario)) {
 		$_SESSION['alias']=$fila['alias'];
 		$_SESSION["loggedin"] = true;
 		
-		header("location:../vistas/index.php");
+		header("location:../vistas/mis_albumes.html");
 	}
 	else{
 		header("location:../vistas/ingresar.php");
