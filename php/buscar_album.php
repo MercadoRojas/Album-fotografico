@@ -69,7 +69,7 @@ $id=$_SESSION["id"];
     </header>
     <br><br><br><br>
 
-<div  class="container pt-4" style="background-color:white; padding: auto">
+<div  class="container pt-4"  style="background-color:white; width: 500px; padding: auto">
 
     <form action="../php/aacBuscar.php" method="GET"  class="validated">
     

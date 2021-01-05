@@ -82,7 +82,7 @@ $query = $con->query($sql1);
     </header>
     <br><br><br><br>
 <div  class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto">
-      <h2 style=" color: rgb(224, 218, 218)"><?php echo $nombre?> </h2>
+      <h2 style=" color: rgb(224, 218, 218)">Nombre de album: <?php echo $nombre?> </h2>
     <form action="../php/aacP.php" method="GET"  class="validated">
     
       <input type="text"  id="id_u" class="form-control "   name="nombre" placeholder="id" hidden="true" value="<?php echo $nombre?>">

@@ -7,33 +7,37 @@ $nombre=$_GET['nombre'];
 
 
 
-  $sql= "SELECT nombre, id FROM album WHERE nombre ='".$nombre."'";
+  $sql= "SELECT nombre, id FROM album WHERE nombre ='".$nombre."' AND id_usuario=".$id_usuar;
 
   $resultado= mysqli_query($con,$sql);
   $fila=mysqli_fetch_array($resultado);
 
     if (!($fila['id'])) {
-      echo "no se encontro album";
+      echo "<script>alert('no tiene permiso para este album');window.location='../php/buscar_album.php';</script>";
+      
     }else{
       echo $id_al=$fila['id'];
-      
       $sql2= "SELECT * FROM albumes_compartidos WHERE id_album =".$id_al;
-      $resultado2= mysqli_query($con,$sql2);
-      $fila2=mysqli_fetch_array($resultado2);
-      echo $fila2['id'];
+      //$resultado2= mysqli_query($con,$sql2);
+      //$fila2=mysqli_fetch_array($resultado2);
+      $query = $con->query($sql2);
+			if($query>0){
+          //$r=$query;
+          //echo $id_al=$r['id'];
       
-      if (!($fila2['id'])) {
-        echo "no se encontro usuario";
-      }else{
-        if ($con->query($sql2) == TRUE) {
+      
+        //if ($con->query($sql2) == TRUE) {
           header("location:../php/modificarPrivilegios.php?nombre=".$nombre."&id_album=".$id_al);
-        }else{
-          echo "no";
-        }
+        
+        
+      //if ($fila2['id']!=null) {
+       
+      }else{
+         echo " no se encontro  ";
 
-      }
+      
 
-  }
+  }}
 
   
 
