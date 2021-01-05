@@ -30,7 +30,7 @@ function muestra_galeria(datos) {
         contenido += "<div>";
         for (let j = 1; j < 4; j++) {
             if (j == 1) {
-                contenido += "<p> <a href=dentro_album.html?id_album=" + datos[i][2]+">" + datos[i][j] + "</a> <img onclick='eliminar(" + datos[i][2] + ")' style='width:3vh' src='../css/img/eliminar.png'></p> ";
+                contenido += "<p> <a href=dentroAlbum.html?id_album=" + datos[i][2]+">" + datos[i][j] + "</a> <img onclick='eliminar(" + datos[i][2] + ")' style='width:3vh' src='../css/img/eliminar.png'></p> ";
             } else if (j == 3) {
                 if(datos[i][j]==null){
                     contenido += "<img src=../css/img/album_default.jpg>";
