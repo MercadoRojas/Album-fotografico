@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar fotos</title>
+    <title>Fotos album</title>
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/agregarFotos.css">
-    <script src="../js/jQuery/jquery-3.5.1.min.js"></script>
-    <script src="../js/objImagen.js"></script>
-    <script src="../js/vista_previa.js"></script>
+    <link rel="stylesheet" href="../css/dentroAlbum.css">
+    <script src="../js/dentroAlbum.js"></script>
+  
 
 </head>
 
@@ -23,7 +22,7 @@
         </div>
 
         <div id="Titulo">
-            <h1>Agregar fotos</h1>
+            <h1>Nombre Album</h1>
         </div>
 
         <div id="Usuario">
@@ -43,8 +42,8 @@
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
           <ul>
-            <li>Opcion 1</li>
-            <li>opcion 2</li>
+            <li><a href="mis_albumes.html">Mis albumes</a></li>
+            <li><a>Subir fotos</a></li>
             <li>opcion 3</li>
             <li>opcion 4</li>
     
@@ -56,22 +55,9 @@
     </header>
 
     <section id="Principal">
-        <article id="vistaPrevia">
-         
-
+        <section id="Imagenes">
            
-        </article>
-
-        <article id="Botones">
-            <form name="formulario" id="formulario" enctype="multipart/form-data" method="post">
-                <table>
-                  <tr> <td><label for="explorador" class="label">Seleccione imagen</label> <input type="file" name="imagen" id="explorador" multiple></td><td>
-                 </tr>   
-                  <tr> <td colspan="2" style="text-align: center"><input type="submit" value="Enviar imagenes" id="Enviar"> </td>  </tr>    
-                </table>
-                 
-               </form>
-        </article>
+        </section>
 
     </section>
 
