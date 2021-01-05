@@ -1,6 +1,7 @@
 .formulario{
-	width: fit-content;
-	align-self: center;
-	background-color: white;
 
+            margin:  auto;
+            width: 550px; 
+            padding: 20px;
+            align-self: center;
 }

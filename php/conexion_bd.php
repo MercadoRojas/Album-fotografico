@@ -11,6 +11,6 @@ if(!$con){
 }
 else{
     mysqli_query($con,"SET NAMES 'UTF8'");
-    echo "todo cool";
+    
 }
 ?>

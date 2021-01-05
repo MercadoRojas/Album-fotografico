@@ -20,12 +20,6 @@ $id=$_SESSION["id"];
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
-<style type="text/css">
-  #id_u{
-    display: hidden; 
-
-  }
-</style>
 <body>
      <header>
         <div id="logo">
@@ -36,7 +30,7 @@ $id=$_SESSION["id"];
         </div>
 
         <div id="Titulo">
-            <h1>Bienvenido</h1>
+            <h1>Crear Album</h1>
         </div>
 
         <div id="Usuario">
@@ -45,10 +39,9 @@ $id=$_SESSION["id"];
             <label for="btn_opciones"><img src="../css/img/editar.png" alt="Opciones"></label>
             <input type="checkbox" name="btn_opciones" id="btn_opciones">
             <ul id="opciones">
-                <li>opcion 1</li>
-                <li>opcion 2</li>
-                <li>opcion 3</li>
+                 <li><a href="../php/perfil.php"> Perfil</a></li>
                 <li> <a href="../php/salir.php"> Salir</a> </li>
+       
        
               </ul>
         </div>
@@ -56,11 +49,11 @@ $id=$_SESSION["id"];
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
           <ul>
-            <li> <a class="btn btn-success"  href="../vistas/agregar_album.php">Agregar Album</a></li>
-            <li>opcion 2</li>
-            <li>opcion 3</li>
-            <li>opcion 4</li>
-    
+                <li> <a href="mis_albumes.html" >Mis albumes </a></li>
+                <li> <a href="agregar_album.php">Nuevo album</a> </li>
+                <li> <a href="compartidos_conmigo">Compartidos conmigo</a></li>
+                <li>opcion 3</li>
+                <li>opcion 4</li>
           </ul>
           <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
          
@@ -69,11 +62,13 @@ $id=$_SESSION["id"];
     </header>
     <br><br><br><br>
 
-<div  class="container pt-4" style="background-color:white; padding: auto">
+<div class="formulario" >
+
+    <div class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto";>
 
     <form action="../php/aa.php" method="GET"  class="validated">
     
-      <input type="text" type="hidden"  id="id_u" class="form-control"  name="id_usuario" placeholder="id" value="<?php echo $id;?>">
+    <input type="text" hidden="true" id="id_u" class="form-control"  name="id_usuario" placeholder="id" value="<?php echo $id;?>">
     <div class="form-group">
 
       <label for="">Ingresa nombre para el album</label>
@@ -83,13 +78,15 @@ $id=$_SESSION["id"];
       <label for="">Descripción</label>
       <input type="text-area"  class="form-control" name="descripcion" placeholder="Descripcion">
     </div>
+      
 
     <div class="form-group">
-      <input type="submit" class="btn btn-primary" name="Crear" >
+      <input type="submit" class="btn btn-primary" value="Crear" >
       <br><br>
     </div>
   </div>
     </form>
+</div>
 </div>
 </body>
 

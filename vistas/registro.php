@@ -40,12 +40,14 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     </header>
     <br><br><br><br>
 
-<div  class="container pt-4" style="background-color:white; padding: auto">
+ <div class="formulario" >
+
+    <div class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto";>
 
     <form action="../php/r.php" method="GET"  class="validated">
     <div class="form-group">
       <label for="">Ingresa tu nombre</label>
-      <input type="text" class="form-control" name="nombre" placeholder="Nombre(s)">
+      <input type="text" class="form-control md " name="nombre" placeholder="Nombre(s)">
     </div>
     <div class="form-group">
       <label for="">Apellido Paterno</label>
@@ -74,6 +76,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     </div>
   </div>
     </form>
+</div>
 </div>
 </body>
 
