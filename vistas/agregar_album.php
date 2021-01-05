@@ -36,7 +36,7 @@ $id=$_SESSION["id"];
         </div>
 
         <div id="Titulo">
-            <h1>Bienvenido</h1>
+            <h1>Crear Album</h1>
         </div>
 
         <div id="Usuario">
@@ -56,11 +56,10 @@ $id=$_SESSION["id"];
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
           <ul>
-            <li> <a class="btn btn-success"  href="../vistas/agregar_album.php">Agregar Album</a></li>
-            <li>opcion 2</li>
-            <li>opcion 3</li>
-            <li>opcion 4</li>
-    
+                <li> <a href="mis_albumes.html" > Mis albumes </a></li>
+                <li> <a href="agregar_album.php">Nuevo album</a> </li>
+                <li> <a href="compartidos_conmigo">Compartidos conmigo</a></li>li>opcion 3</li>
+                <li>opcion 4</li>
           </ul>
           <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
          
@@ -73,7 +72,7 @@ $id=$_SESSION["id"];
 
     <form action="../php/aa.php" method="GET"  class="validated">
     
-      <input type="text" type="hidden"  id="id_u" class="form-control"  name="id_usuario" placeholder="id" value="<?php echo $id;?>">
+      <input type="text" hidden="true" id="id_u" class="form-control"  name="id_usuario" placeholder="id" value="<?php echo $id;?>">
     <div class="form-group">
 
       <label for="">Ingresa nombre para el album</label>
@@ -83,6 +82,7 @@ $id=$_SESSION["id"];
       <label for="">Descripción</label>
       <input type="text-area"  class="form-control" name="descripcion" placeholder="Descripcion">
     </div>
+      
 
     <div class="form-group">
       <input type="submit" class="btn btn-primary" name="Crear" >

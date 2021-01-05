@@ -21,6 +21,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="stylesheet" href="../css/mis_albumes.css">
 
 </head>
 
