@@ -10,10 +10,10 @@ $id=$_SESSION["id"];
 $id_a=$_GET['id_album'];
 $nombre=$_GET['nombre'];
 
-//$sql1= "select * from album WHERE id=".$id_a;
 
 $sql1= "select * from albumes_compartidos WHERE id_album=".$id_a;
 $query = $con->query($sql1);
+
 
 ?>
 
@@ -56,9 +56,7 @@ $query = $con->query($sql1);
             <label for="btn_opciones"><img src="../css/img/editar.png" alt="Opciones"></label>
             <input type="checkbox" name="btn_opciones" id="btn_opciones">
             <ul id="opciones">
-                <li>opcion 1</li>
-                <li>opcion 2</li>
-                <li>opcion 3</li>
+                <li><a href="../php/perfil.php"> Perfil</a></li>
                 <li> <a href="../php/salir.php"> Salir</a> </li>
        
               </ul>
@@ -69,7 +67,8 @@ $query = $con->query($sql1);
           <ul>
            <li> <a href="mis_albumes.html" > Mis albumes </a></li>
                 <li> <a href="agregar_album.php">Nuevo album</a> </li>
-                <li> <a href="compartidos_conmigo">Compartidos conmigo</a></li>li>opcion 3</li>
+                <li> <a href="compartidos_conmigo">Compartidos conmigo</a></li>
+                <li>opcion 3</li>
             <li>opcion 4</li>
     
           </ul>
@@ -91,7 +90,7 @@ $query = $con->query($sql1);
       <label style=" color: rgb(224, 218, 218)">Ingresa alias de usuario</label>
       <input type="text" class="form-control" name="alias" placeholder="alias">
    
-      <input type="submit" class="btn btn-primary" name="Agregar Colaborador" >
+      <input type="submit" class="btn btn-primary" value="Agregar Colaborador" >
       <br><br>
     </div>
  
@@ -108,7 +107,23 @@ $query = $con->query($sql1);
      <?php while ($r=$query->fetch_array()):?>
       <tr>
         <td>
-          <?php echo $r['id_usuario'];?>
+          <?php 
+
+          $identif=$r['id_usuario'];
+
+        $sqlu= "SELECT * FROM usuarios WHERE id ='".$identif."'";
+
+          $resultado= mysqli_query($con,$sqlu);
+          $fila=mysqli_fetch_array($resultado);
+
+        if (!($fila['alias'])) {
+          echo "no se encontro usuario";
+        }else{
+        echo $fila['alias'];
+
+        }
+
+          ?>
         </td>
           <td>
           <?php 
@@ -125,7 +140,7 @@ $query = $con->query($sql1);
         </td>
         
         <td>
-       <a href="../php/eliminar.php?id=<?php echo $r['id_usuario'];?>" class="btn btn-danger" title="Eliminar" data-toggle="tooltip">Eliminar</a>
+       <a href="../php/eliminar.php?id=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;;?>" class="btn btn-danger" title="Eliminar" data-toggle="tooltip">Eliminar</a>
 
         </td>
         <td>

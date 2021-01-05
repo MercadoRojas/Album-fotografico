@@ -21,7 +21,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
-    
+
     <link rel="stylesheet" href="../css/mis_albumes.css">
 
 </head>
@@ -42,10 +42,15 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     </header>
     <br><br><br><br>
 
-<div  class="container pt-4" style="background-color:white; padding: auto">
+    <div class="formulario " >
 
-    <form action="../php/i.php" method="GET"  class="validated">
-    
+    <div class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto";>
+       <div style=" align-content: center">
+          <img src="../css/img/usuario.svg"  align="center" alt="Foto perfil" height="100px" width="100px">
+       </div>
+      
+    <form action="../php/i.php" method="GET"  class="validated " >
+   
      <div class="form-group" >
       <label for="">Correo</label>
       <input type="email"  class="form-control" name="correo" placeholder="correo@correo.com">
@@ -56,7 +61,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     </div>
 
     <div class="form-group" style="align-items: center" >
-      <input type="submit" class="btn btn-primary" name="Ingresar" >
+      <input type="submit" class="btn btn-primary" name="Ingresar" value="Ingresar">
 
        <a class="btn btn-success"  href="../vistas/registro.php">Registrarse</a>
 <br>
@@ -64,7 +69,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     </div>
     </form>
      
-</div>
+</div>      
+    </div>
+
 </body>
 
 </html>
