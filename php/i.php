@@ -18,6 +18,7 @@ if (isset($usuario)) {
  
 		$_SESSION['id']=$fila['id'];
 		$_SESSION['alias']=$fila['alias'];
+		$_SESSION['foto']=$fila['ruta'];
 		$_SESSION["loggedin"] = true;
 		
 		header("location:../vistas/mis_albumes.html");

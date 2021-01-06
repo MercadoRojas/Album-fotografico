@@ -7,6 +7,14 @@ window.onload=function (e) {
         var alias=datosRespuesta;
     usuario.innerHTML=alias;//agregando texto al elemento html
     });
+    var fperfil=document.getElementById("usuario");//recuperando elemento de html
+    fetch("../php/recupera_fotou.php")//recuperando el usuario de la sesion 
+        .then(resp => resp.json())
+        .then(function (fotoRespuesta) {
+            var fotito = fotoRespuesta;
+
+ document.getElementById("foto_p").src=fotito;
+  });
 
     var reg = new RegExp( '[?&]' + "id_album" + '=([^&#]*)', 'i' );
     var reg2 = new RegExp( '[?&]' + "permisos" + '=([^&#]*)', 'i' );

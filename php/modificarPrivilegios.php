@@ -35,8 +35,11 @@ $query = $con->query($sql1);
 </head>
 <style type="text/css">
   #id_u{
-    display: hidden; 
-
+    display: hidden;} 
+  th{
+    background-color: rgb(95, 158, 160);
+    color: rgb(224, 218, 218);
+  
   }
 </style>
 <body>
@@ -53,26 +56,26 @@ $query = $con->query($sql1);
         </div>
 
         <div id="Usuario">
-            <img src="../css/img/usuario.svg" alt="Foto perfil">
-            <h5>Usuario: <?php echo $_SESSION["alias"]; ?></h5>
+            <img src="../css/img/usuario.svg" alt="Foto perfil" id="foto_p">
+            <h5  id="alias_usuario">Usuario</h5>
             <label for="btn_opciones"><img src="../css/img/editar.png" alt="Opciones"></label>
             <input type="checkbox" name="btn_opciones" id="btn_opciones">
             <ul id="opciones">
-                <li>opcion 1</li>
-                <li>opcion 2</li>
-                <li>opcion 3</li>
+                 <li><a href="../php/perfilEditar.php"> Perfil</a></li>
                 <li> <a href="../php/salir.php"> Salir</a> </li>
+       
        
               </ul>
         </div>
 
+
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
           <ul>
-           <li> <a href="mis_albumes.html" > Mis albumes </a></li>
-                <li> <a href="agregar_album.php">Nuevo album</a> </li>
-                <li> <a href="compartidos_conmigo">Compartidos conmigo</a></li><li>opcion 3</li>
-                <li>opcion 4</li>
+            <li> <a href="../vistas/mis_albumes.html" > Mis albumes </a></li>
+                <li> <a href="../vistas/agregar_album.php">Nuevo album</a> </li>
+                <li> <a href="../vistas/compartidos_conmigo.html">Compartidos conmigo</a></li>
+                <li><a href="../php/buscar_album.php">Buscar Album</a></li>
     
           </ul>
           <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
@@ -81,19 +84,22 @@ $query = $con->query($sql1);
         </section>
     </header>
     <br><br><br><br>
-<div  class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto">
+        <div class="formulario_p">
+      
+<div  class="container pt-4" style="  padding: auto">
+
       <h2 style=" color: rgb(224, 218, 218)">Nombre de album: <?php echo $nombre?> </h2>
-    <form action="../php/aacP.php" method="GET"  class="validated">
+    <form action="../php/aacP.php" method="GET"  class="form-inline">
     
       <input type="text"  id="id_u" class="form-control "   name="nombre" placeholder="id" hidden="true" value="<?php echo $nombre?>">
 
       <input type="text" hidden="true"  id="id_u" class="form-control"  name="id_a" placeholder="id"  value="<?php echo $id_a;?>">
     <div class="form-group">
 
-      <label style=" color: rgb(224, 218, 218)">Ingresa alias de usuario</label>
-      <input type="text" class="form-control" name="alias" placeholder="alias">
-   
-      <input type="submit" class="btn btn-primary" name="Agregar Colaborador" >
+      <label style=" color: rgb(224, 218, 218)">Ingresa alias de usuario:&nbsp;</label>
+      <input type="text" class="form-control" name="alias" placeholder="alias" required>
+   &nbsp;
+      <input type="submit" class="btn btn-primary btn-md" name="Bucar Colaborador" value="Buscar usuario" >
       <br><br>
     </div>
  
@@ -157,7 +163,7 @@ $query = $con->query($sql1);
 
             <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-danger" title="EliminarFoto" data-toggle="tooltip">Eliminar Fotos</a>
 
-             <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=3&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-primary" title="TodosPriv" data-toggle="tooltip">Todos los privilegios</a>
+             <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=3&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-primary" title="TodosPriv" data-toggle="tooltip">Ambos privilegios</a>
 
         </td>
       </tr>
@@ -165,8 +171,9 @@ $query = $con->query($sql1);
   </table>
  <br><br>
 </div>
+</div>
 
 </body>
-
+<script src="../js/sesion.js"></script>
 </html>
 
