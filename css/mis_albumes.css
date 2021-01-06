@@ -4,13 +4,14 @@
 }
 
 #galeria {
-    padding-top: 15vh;
+    padding-top: 10vh;
     width: 100%;
     display: flex;
     flex-flow: wrap;
     color: cornsilk;
     padding-left: 5%;
     padding-right: 5%;
+    box-sizing: border-box;
 }
 
 #galeria div {
@@ -18,8 +19,8 @@
     width: 42vh;
     margin-right: 2%;
     height: 30vh;
-    margin-bottom: 2%;
-    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 #galeria img {
@@ -46,6 +47,7 @@ p {
     color: brown;
     background-color: rgba(224, 170, 226, 0.8);
     text-align: center;
+    box-sizing: border-box;
 }
 
 p img {
