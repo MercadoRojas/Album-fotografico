@@ -8,6 +8,15 @@ window.onload = function (params) {
             document.getElementById("alias_usuario").innerHTML = nombre;
         });
 
+
+var fperfil=document.getElementById("usuario");//recuperando elemento de html
+    fetch("../php/recupera_fotou.php")//recuperando el usuario de la sesion 
+        .then(resp => resp.json())
+        .then(function (fotoRespuesta) {
+            var fotito = fotoRespuesta;
+
+ document.getElementById("foto_p").src=fotito;
+  });
     fetch("../php/recupera_albumes.php", { method: 'POST' })//recuperando tabla de base de datos 
         .then(respuesta => respuesta.json())
         .then(muestra_galeria)

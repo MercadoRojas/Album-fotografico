@@ -15,6 +15,8 @@ $sql= "SELECT * FROM usuarios WHERE alias ='".$b_alias."'";
 
 if (!($fila['id'])) {
 	echo "no se encontro usuario";
+	
+		header("location:../php/modificarPrivilegios.php?nombre=".$nombre."&id_album=".$id_a);
 }else{
 
 

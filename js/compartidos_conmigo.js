@@ -14,7 +14,14 @@ window.onload = function (params) {
         .catch(function (error) {
         });
 
+   var fperfil=document.getElementById("usuario");//recuperando elemento de html
+    fetch("../php/recupera_fotou.php")//recuperando el usuario de la sesion 
+        .then(resp => resp.json())
+        .then(function (fotoRespuesta) {
+            var fotito = fotoRespuesta;
 
+ document.getElementById("foto_p").src=fotito;
+  });
 
 
 }

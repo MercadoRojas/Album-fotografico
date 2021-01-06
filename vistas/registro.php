@@ -4,7 +4,7 @@ session_start();
  
 // Verificar sí hay un usuario logeado
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location:../vistas/index.php");
+    header("location:../vistas/mis_albumes.html");
     exit;
 }
 
@@ -36,42 +36,57 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             <h1>Registro</h1>
         </div>
         <div id="Titulo"  >
-            </div>
+        </div>
+        
     </header>
     <br><br><br><br>
 
- <div class="formulario" >
+ <div class="formulario_reg" >
 
-    <div class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto";>
+        <div class="inicio">
+          <h2>Registra tus datos   </h2>
+       </div>
+    <div class="container pt-4" style="  ">
 
-    <form action="../php/r.php" method="GET"  class="validated">
-    <div class="form-group">
-      <label for="">Ingresa tu nombre</label>
-      <input type="text" class="form-control md " name="nombre" placeholder="Nombre(s)">
+    <form action="../php/r.php" method="POST" enctype="multipart/form-data"  class="validated">
+     <div class="botones">
+      <img id="imagenPrevisualizacion" width="200" height="100">
+              <br><br>
+              <input type="file" name="imagen" id="seleccionArchivos" required>
+              <script src="../js/prevImg.js"></script>
     </div>
-    <div class="form-group">
-      <label for="">Apellido Paterno</label>
-      <input type="text"  class="form-control" name="ape_p" placeholder="Apellido Paterno">
-    </div>
-    <div class="form-group">
-      <label for="">Apellido Materno</label>
-      <input type="text"  class="form-control" name="ape_m" placeholder="Apellido Materno">
-    </div>
-    <div class="form-group">
-      <label for="">Alias</label>
-      <input type="text"  class="form-control" name="alias" placeholder="Alias">
-    </div>
-     <div class="form-group" >
-      <label for="">Correo</label>
-      <input type="email"  class="form-control" name="correo" placeholder="correo@correo.com">
-    </div>
-    <div class="form-group">
-      <label for="">Contraseña</label>
-      <input type="password"  class="form-control" name="password" placeholder="Contraseña">
-    </div>
+    <table  width="700px" >
+      <tr>
+        <td><label for="">Apellido Paterno:</label></td>
+        <td><input type="text"  class="form-control" name="ape_p" placeholder="Apellido Paterno" required></td>
+       </tr>
+       <tr>
+        <td><label for="">Apellido Materno:</label></td>
+        <td><input type="text"  class="form-control" name="ape_m" placeholder="Apellido Materno" required></td>
+        
+       </tr>
+       <tr>
+      <td><label for="">Ingresa tu nombre:</label></td>
+      <td><input type="text" class="form-control  " name="nombre" placeholder="Nombre(s)" required>   </td>
+       </tr>
+      <tr>
+        <td><label for="">Alias:</label></td>
+      <td><input type="text"  class="form-control" name="alias" placeholder="Alias" required> </td>
+      </tr>
+      <tr>
+      <td><label for="">Correo:</label></td>
+      <td><input type="email"  class="form-control" name="correo" placeholder="correo@correo.com" required>  </td>
+      </tr>
+      <tr>
+          <td><label for="">Contraseña:</label></td>
+        <td><input type="password"  class="form-control" name="password" placeholder="Contraseña" required></td>
+      </tr>
+            
+    </table>
 
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary" name="Agregar" >
+    <div  class="botones">
+      <input type="submit" class="btn btn-primary btn-lg" value="Registrarme" >
+       <a class="btn btn-danger btn-lg" href="../vistas/ingresar.php">Cancelar</a>
       <br><br>
     </div>
   </div>

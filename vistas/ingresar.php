@@ -43,29 +43,31 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     <br><br><br><br>
 
     <div class="formulario " >
-
-    <div class="container pt-4" style=" background-color: rgb(95, 158, 160); padding: auto";>
-       <div style=" align-content: center">
-          <img src="../css/img/usuario.svg"  align="center" alt="Foto perfil" height="100px" width="100px">
+        <div class="inicio">
+          <h2> Iniciar Sesión </h2>
        </div>
+    <div class="container pt-4" style="padding: auto";>
+       
       
-    <form action="../php/i.php" method="GET"  class="validated " >
+    <form action="../php/i.php" method="GET"   class="validated">
    
      <div class="form-group" >
-      <label for="">Correo</label>
-      <input type="email"  class="form-control" name="correo" placeholder="correo@correo.com">
+      <label for="">Correo:</label>
+      <input type="email"  class="form-control" name="correo" placeholder="correo@correo.com" required>
     </div>
     <div class="form-group">
-      <label for="">Contraseña</label>
-      <input type="password"  class="form-control" name="password" placeholder="Contraseña">
+      <label for="">Contraseña:</label>
+      <input type="password"  class="form-control" name="password" placeholder="Contraseña" required>
     </div>
 
-    <div class="form-group" style="align-items: center" >
-      <input type="submit" class="btn btn-primary" name="Ingresar" value="Ingresar">
+    <div class="botones">
+      <input type="submit" class="btn btn-primary btn-lg" name="Ingresar" value="Ingresar">
 
-       <a class="btn btn-success"  href="../vistas/registro.php">Registrarse</a>
-<br>
-<br>
+    </div>
+
+    <div class="botones">
+        ¿no tiene cuenta?
+        <a  href="../vistas/registro.php">Registrarse</a>
     </div>
     </form>
      

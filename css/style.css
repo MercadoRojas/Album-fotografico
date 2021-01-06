@@ -1,7 +1,82 @@
+
+@font-face {
+    font-family: "Cursiva";
+    src: url("fonts/Sofia-Regular.ttf") format("truetype");
+}
+
 .formulario{
 
             margin:  auto;
+            font-family: "Cursiva";
             width: 550px; 
             padding: 20px;
             align-self: center;
+           background-color:rgba(95, 158, 160, 0.5);
+           color: rgb(224, 218, 218);
+            font-size: 30px;  
+            
+}
+
+.formulario_reg{
+
+            margin:  auto;
+            font-family: "Cursiva";
+            width: 750px; 
+            padding: 20px;
+            align-self: center;
+           background-color:rgba(95, 158, 160, 0.5);
+           color: rgb(224, 218, 218);
+            font-size: 30px;  
+            
+}
+
+.formulario_p{
+
+            margin:  auto;
+            font-family: "Cursiva";
+            width: 750px; 
+            padding: 20px;
+            align-self: center;
+           background-color:rgba(95, 158, 160, 0.5);
+           color: rgb(224, 218, 218);
+            font-size: 20px;  
+            
+}
+
+.inicio{
+		font-family: "Cursiva";
+		color: rgb(224, 218, 218);
+		max-width:auto; 
+		text-align: center;
+		 background-color: rgb(95, 158, 160);
+		height: auto;
+		
+
+}
+.botones{
+	font-family: "Cursiva";
+		color: rgb(224, 218, 218);
+		max-width:auto; 
+		text-align: center;
+		text-decoration: blink;
+		height: auto;
+		font-size: 20px;
+		padding: 20px;
+}
+
+
+
+input[type=file]{
+		font-family: "Cursiva";
+		color: rgb(224, 218, 218);
+		width: auto;
+		font-size: 20px;
+		
+
+}
+
+
+button{
+	background-color: green;
+	color: rgb(224, 218, 218);
 }
