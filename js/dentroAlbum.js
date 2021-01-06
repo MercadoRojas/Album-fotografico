@@ -76,7 +76,7 @@ function recuperaImagenes(matrizResultado){
           figure.setAttribute("id",""+matrizResultado[i][0]);
       var boton=document.createElement("button");
       var imagen2=document.createElement("img");
-          imagen2.setAttribute("src","../css/img/x.png");
+          imagen2.setAttribute("src","../css/img/x.jpeg");
           boton.append(imagen2);
           if (permisos==2 || permisos==3) {
             figure.append(imagen,boton);

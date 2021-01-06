@@ -16,10 +16,12 @@ if (mysqli_connect_errno()) {
 $tabla_bd = "fotos";
 $consulta = "Select  direccion from fotos where id_album= $id";
 $eliminacion1 = "delete from $tabla_bd where id_album=$id ";
-$eliminacion2 = "delete from album where id=$id ";
+$eliminacion2 = "delete from albumes_compartidos where id_album=$id ";
+$eliminacion3 = "delete from album where id=$id ";
 $resultado = mysqli_query($conexion, $consulta);
 $resultado1 = mysqli_query($conexion, $eliminacion1);
 $resultado2 = mysqli_query($conexion, $eliminacion2);
+$resultado3 = mysqli_query($conexion, $eliminacion3);
 $fotos;
 $contfotos = 0;
 if ($resultado == false) {
@@ -33,13 +35,20 @@ if ($resultado == false) {
     if ($resultado1 == false) {
     } else {
         echo json_encode("se realiza eliminacion de " . $eliminacion1);
-        if ($resultado2 == false) {
-        } else {
-            echo json_encode("Se realiza eliminacion de " . $eliminacion2);
-        }
+       }
+        
     }
-}
 
+    if ($resultado2 == false) {
+        echo($resultado2);
+    } else {
+        echo json_encode("Se realiza eliminacion de " . $eliminacion2);
+    }
+    if ($resultado3 == false) {
+        echo ($resultado2);
+    } else {
+        echo json_encode("Se realiza eliminacion de " . $eliminacion2);
+    }
 
 mysqli_close($conexion);
 }
