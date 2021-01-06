@@ -4,7 +4,7 @@ require_once("conexion_bdFull.php");
 $arreglo=$_POST["imagenes"];//recupero el literal del arreglo de objetos
 $id_album=$_POST["imagenes"][0]["categoria"];
 $nombreImagen;
-$carpetaDestino=$_SERVER['DOCUMENT_ROOT'].'/AlbumFotografico/img/';//carpeta destino de imagenes
+$carpetaDestino='../img/';//carpeta destino de imagenes
 
 
 foreach($arreglo as $indice){//recorre el indice del arreglo de objetos
