@@ -27,29 +27,26 @@
     height: 95%;
 }
 
-p a {
-    width: 80%;
+article a {
+    display: flex;
+    width: 100%;
     height: 8vh;
-    padding: 3%;
-    font-size: 3vh;
-    font-family: "Cursiva";
-    color: cornsilk;
-    background-color: rgba(224, 170, 226, 0.1);
-    text-align: center;
+    align-content: center;
+
 }
 
-p {
+article {
     display: flex;
-    padding: 3%;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
     font-size: 3vh;
     font-family: "Cursiva";
+    width: 100%;
     color: brown;
     background-color: rgba(224, 170, 226, 0.8);
     text-align: center;
-}
-
-p img {
-    margin-right: 3%;
-    display: flex;
-    align-self: left;
+    box-sizing: border-box;
 }

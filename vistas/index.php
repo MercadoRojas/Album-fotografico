@@ -1,3 +1,16 @@
+<?php
+// Inicializar sesión
+session_start();
+
+// Chequeo de un usuario logeado
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: ../vistas/ingresar.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plantilla</title>
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/mis_albumes.css">
 
 </head>
 
@@ -20,26 +32,30 @@
         </div>
 
         <div id="Titulo">
-            <h1>Mis albumes</h1>
+            <h1>Bienvenido</h1>
         </div>
 
         <div id="Usuario">
             <img src="../css/img/usuario.svg" alt="Foto perfil">
-            <h5 id="alias_usuario">Nombre usuario</h5>
+            <h5>Usuario: <?php echo $_SESSION["alias"]; ?></h5>
             <label for="btn_opciones"><img src="../css/img/editar.png" alt="Opciones"></label>
             <input type="checkbox" name="btn_opciones" id="btn_opciones">
             <ul id="opciones">
-                <li> Perfil</li>
-                <li> <a href="ingresar.php"> Salir</a></li>
+                <li>opcion 1</li>
+                <li>opcion 2</li>
+                <li>opcion 3</li>
+                <li> <a href="../php/salir.php"> Salir</a> </li>
+
             </ul>
         </div>
 
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
             <ul>
-                <li> <a href="mis_albumes.html" > Mis albumes </a></li>
-                <li> <a href="agregar_album.php">Nuevo album</a> </li>
-                <li> <a href="compartidos_conmigo.html">Compartidos conmigo</a></li>
+                <li> <a class="btn btn-success" href="../vistas/agregar_album.php">Agregar Album</a></li>
+                <li>opcion 2</li>
+                <li>opcion 3</li>
+                <li>opcion 4</li>
 
             </ul>
             <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
@@ -48,20 +64,8 @@
         </section>
     </header>
 
-    <input type="checkbox" name="btn_menu" id="btn_menu">
-    <section id="menu">
-        <ul>
-            <li>Opcion 1</li>
-            <li>opcion 2</li>
-            <li>opcion 3</li>
-            <li>opcion 4</li>
 
-        </ul>
-        <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
-    </section>
-    <section id="galeria">
-    </section>
-    <script src="../js/mis_albumes.js"></script>
+
 </body>
 
 </html>

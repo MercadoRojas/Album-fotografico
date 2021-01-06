@@ -4,64 +4,52 @@ window.onload = function (params) {
         .then(respuesta => respuesta.json())
         .then(function (datosRespuesta) {
             var nombre = datosRespuesta;
-             
-            document.getElementById("alias_usuario").innerHTML=nombre;
+
+            document.getElementById("alias_usuario").innerHTML = nombre;
         });
 
-    fetch("../php/recupera_albumes.php", { method: 'POST' })//recuperando tabla de base de datos 
+    fetch("../php/recupera_albumes_compartidos.php", { method: 'POST' })//recuperando tabla de base de datos 
         .then(respuesta => respuesta.json())
         .then(muestra_galeria)
         .catch(function (error) {
         });
 
-   
+
 
 
 }
 function salir(evnt) {
     location.href = "ingresar.php";
 }
+
 function muestra_galeria(datos) {
     var galeria = document.getElementById("galeria");
     contenido = "";
     galeria.innerHTML = "";
     for (let i = 0; i < datos.length; i++) {
         contenido += "<div>";
-        for (let j = 1; j < 4; j++) {
+        for (let j = 1; j < 6; j++) {
             if (j == 1) {
-                contenido += "<p> <a href=dentroAlbum.html?id_album=" + datos[i][2] + "&permisos=3>" + datos[i][j] + "</a> <img onclick='editar(" + datos[i][2] + ")' style='width:3vh' src='../css/img/editar_a.png'> <img onclick='eliminar(" + datos[i][2] + ")' style='width:3vh' src='../css/img/eliminar.png'></p> ";
-            } else if (j == 3) {
-                if(datos[i][j]==null){
+                contenido += "<article> <a href=dentroAlbum.html?id_album=" + datos[i][1] + "&permisos="+datos[i][2]+">" + datos[i][3] + "</a><p> Creador: " + datos[i][5]+"</p></article> ";
+            } else if (j == 4) {
+                
+                if (datos[i][j] == null) {
                     contenido += "<img src=../css/img/album_default.jpg>";
-                }else{
+                } else {
                     contenido += "<img src=" + datos[i][j] + ">";
 
                 }
 
             }
         }
+        
         contenido += "</div>";
     }
     galeria.innerHTML = contenido;
 }
 
 
-function editar(datos) {
-   
-   var nombre= prompt("introduce el nuevo nombre del album", "");
-    var x = "../php/editar_album.php?id_album=" + datos + "&nombre=" + nombre;
-  if(nombre!=null){
-      var fr = new FormData();
-      fr.append("id", datos);
-      fetch(x, {
-          method: 'POST',
-          body: fr
-      }).then(function (resultado) {
-          location.reload();
-      });
 
-  }
-}
 function eliminar(datos) {
     var fr = new FormData();
     fr.append("id", datos);
@@ -69,7 +57,8 @@ function eliminar(datos) {
         method: 'POST',
         body: fr
     }).then(function (resultado) {
-        location.reload();
+        ;
     });
 
+    
 }
