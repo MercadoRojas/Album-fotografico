@@ -4,8 +4,8 @@ window.onload = function (params) {
         .then(respuesta => respuesta.json())
         .then(function (datosRespuesta) {
             var nombre = datosRespuesta;
-             
-            document.getElementById("alias_usuario").innerHTML=nombre;
+
+            document.getElementById("alias_usuario").innerHTML = nombre;
         });
 
     fetch("../php/recupera_albumes.php", { method: 'POST' })//recuperando tabla de base de datos 
@@ -14,7 +14,7 @@ window.onload = function (params) {
         .catch(function (error) {
         });
 
-   
+
 
 
 }
@@ -31,9 +31,9 @@ function muestra_galeria(datos) {
             if (j == 1) {
                 contenido += "<p> <a href=dentroAlbum.html?id_album=" + datos[i][2] + "&permisos=3>" + datos[i][j] + "</a> <img onclick='editar(" + datos[i][2] + ")' style='width:3vh' src='../css/img/editar_a.png'> <img onclick='eliminar(" + datos[i][2] + ")' style='width:3vh' src='../css/img/eliminar.png'></p> ";
             } else if (j == 3) {
-                if(datos[i][j]==null){
+                if (datos[i][j] == null) {
                     contenido += "<img src=../css/img/album_default.jpg>";
-                }else{
+                } else {
                     contenido += "<img src=" + datos[i][j] + ">";
 
                 }
@@ -47,20 +47,20 @@ function muestra_galeria(datos) {
 
 
 function editar(datos) {
-   
-   var nombre= prompt("introduce el nuevo nombre del album", "");
-    var x = "../php/editar_album.php?id_album=" + datos + "&nombre=" + nombre;
-  if(nombre!=null){
-      var fr = new FormData();
-      fr.append("id", datos);
-      fetch(x, {
-          method: 'POST',
-          body: fr
-      }).then(function (resultado) {
-          location.reload();
-      });
 
-  }
+    var nombre = prompt("introduce el nuevo nombre del album", "");
+    var x = "../php/editar_album.php?id_album=" + datos + "&nombre=" + nombre;
+    if (nombre != null) {
+        var fr = new FormData();
+        fr.append("id", datos);
+        fetch(x, {
+            method: 'POST',
+            body: fr
+        }).then(function (resultado) {
+            location.reload();
+        });
+
+    }
 }
 function eliminar(datos) {
     var fr = new FormData();
