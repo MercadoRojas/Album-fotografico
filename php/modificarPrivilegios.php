@@ -52,7 +52,7 @@ $query = $con->query($sql1);
         </div>
 
         <div id="Titulo">
-            <h1>Agregar miembros a álbum</h1>
+            <h1>Modificar miembros y permisos de álbum</h1>
         </div>
 
         <div id="Usuario">
