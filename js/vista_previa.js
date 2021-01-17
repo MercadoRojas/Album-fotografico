@@ -23,8 +23,8 @@ function enviarImagen(e){
     var reg = new RegExp( '[?&]' + "id_album" + '=([^&#]*)', 'i' );
     var string = reg.exec(window.location.href);
     var id_album=string ? string[1] : undefined;
-      var categoria=id_album//recuperar id del album
-      alert("id album="+id_album)
+      var categoria=id_album;//recuperar id del album
+     
     for(var i=0;i<arregloImg.length;i++){
         //modifico el valor de categoria con el ultimo valor seleccionado 
         arregloImg[i].setCategoria(categoria);

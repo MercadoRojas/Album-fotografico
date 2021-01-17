@@ -5,7 +5,7 @@ session_start();
 // Chequeo de un usuario logeado
 
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: ../vistas/ingresar.php");
+    header("location: ../vistas/index.html");
     exit;
 }
 

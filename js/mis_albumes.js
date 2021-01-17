@@ -72,6 +72,8 @@ function editar(datos) {
     }
 }
 function eliminar(datos) {
+    var respuesta = confirm("Decea borrar el album, se borraran todas las fotos que contiene\n Las personas a las que le compartiste el album dejaran de verlas \n ¿Desea eliminarlo?");
+    if (respuesta == true) {
     var fr = new FormData();
     fr.append("id", datos);
     fetch("../php/eliminar_album.php", {
@@ -80,5 +82,5 @@ function eliminar(datos) {
     }).then(function (resultado) {
         location.reload();
     });
-
+    }
 }
