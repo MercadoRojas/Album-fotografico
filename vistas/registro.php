@@ -17,8 +17,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse </title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
 
@@ -50,43 +48,47 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
     <form action="../php/r.php" method="POST" enctype="multipart/form-data"  class="validated">
      <div class="botones">
-      <img id="imagenPrevisualizacion" width="200" height="100">
+    
+         
+              <img id="imagenPrevisualizacion" style="background-size: cover;"  width="100" height="100">
               <br><br>
               <input type="file" name="imagen" id="seleccionArchivos" required>
               <script src="../js/prevImg.js"></script>
+              <br>
     </div>
-    <table  width="700px" >
+    <table  width="80%" >
+
       <tr>
         <td><label for="">Apellido Paterno:</label></td>
-        <td><input type="text"  class="form-control" name="ape_p" placeholder="Apellido Paterno" required></td>
+        <td><input type="text"  class="form-control" name="ape_p" placeholder="Apellido Paterno"  pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}"  required></td>
        </tr>
        <tr>
         <td><label for="">Apellido Materno:</label></td>
-        <td><input type="text"  class="form-control" name="ape_m" placeholder="Apellido Materno" required></td>
+        <td><input type="text"  class="form-control" name="ape_m" placeholder="Apellido Materno"  pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{1,64}"  required></td>
         
        </tr>
        <tr>
       <td><label for="">Ingresa tu nombre:</label></td>
-      <td><input type="text" class="form-control  " name="nombre" placeholder="Nombre(s)" required>   </td>
+      <td><input type="text" class="form-control  " name="nombre" placeholder="Nombre(s)" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"  required>   </td>
        </tr>
       <tr>
         <td><label for="">Alias:</label></td>
-      <td><input type="text"  class="form-control" name="alias" placeholder="Alias" required> </td>
+      <td><input type="text"  class="form-control" name="alias" placeholder="Alias" pattern="^([a-z]+[0-9]{0,2}){5,12}$" required title="Solo letras minúsculas 5 y 12 caracteres y opcionalmente dos numeros finales. Ejemplo: usuario01"  required> </td>
       </tr>
       <tr>
       <td><label for="">Correo:</label></td>
-      <td><input type="email"  class="form-control" name="correo" placeholder="correo@correo.com" required>  </td>
+      <td><input type="text"  class="form-control" name="correo" placeholder="correo@correo.com"  pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}" required title="Ejemplo: correo@correo.com" />  </td>
       </tr>
       <tr>
           <td><label for="">Contraseña:</label></td>
-        <td><input type="password"  class="form-control" name="password" placeholder="Contraseña" required></td>
+        <td><input type="password"  class="form-control" name="password" placeholder="Contraseña" pattern="[A-Za-z0-9!?-]{8,12}" title="La contraseña debe entre 8 y 12 caracteres"  required></td>
       </tr>
             
     </table>
 
     <div  class="botones">
-      <input type="submit" class="btn btn-primary btn-lg" value="Registrarme" >
-       <a class="btn btn-danger btn-lg" href="../vistas/ingresar.php">Cancelar</a>
+      <input type="submit" value="Registrarme" >
+       <a class="btncancelar" href="../vistas/ingresar.php">Cancelar</a>
       <br><br>
     </div>
   </div>

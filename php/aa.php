@@ -1,14 +1,26 @@
 
 <?php
 include ("conexion_bd.php");
-
 $id_usuario=$_GET['id_usuario'];
 $nombre=$_GET['nombre'];
 $desc=$_GET['descripcion'];
-echo $id_usuario;
 
 $fecha= date("Y-m-d");  
-$sql = "INSERT INTO album (id_usuario,nombre,descripcion,fecha_publicacion)
+
+  $sql= "SELECT * FROM album WHERE nombre ='".$nombre."' AND id_usuario=".$id_usuario;
+
+  $resultado= mysqli_query($con,$sql);
+  $fila=mysqli_fetch_array($resultado);
+
+
+if ($fila['nombre']==$nombre) {
+	
+	print "<script>alert(\"Ya tienes un álbum con ese nombre\");window.location='../vistas/agregar_album.php';</script>";
+	
+
+} else {
+	
+	$sql = "INSERT INTO album (id_usuario,nombre,descripcion,fecha_publicacion)
   VALUES ('".$id_usuario."','".$nombre."','".$desc."','".$fecha."')";
 
 
@@ -34,5 +46,6 @@ $sql = "INSERT INTO album (id_usuario,nombre,descripcion,fecha_publicacion)
     } else {
       echo "Error: " . $sql . "<br>" . $con->error;
     }
-
+   
+}
 ?>

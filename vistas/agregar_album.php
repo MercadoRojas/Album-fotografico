@@ -1,8 +1,7 @@
 <?php
-// Inicializar sesión
+
+// inicializar la sesion 
 session_start();
- 
-// Chequeo de un usuario logeado
 
 $id=$_SESSION["id"];
 ?>
@@ -14,8 +13,7 @@ $id=$_SESSION["id"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Album </title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+    
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
 
@@ -31,7 +29,7 @@ $id=$_SESSION["id"];
         </div>
 
         <div id="Titulo">
-            <h1>Crear Album</h1>
+            <h1>Crear Álbum</h1>
         </div>
 
         <div id="Usuario">
@@ -51,9 +49,9 @@ $id=$_SESSION["id"];
         <section id="menu">
           <ul>
             <li> <a href="../vistas/mis_albumes.html" > Mis albumes </a></li>
-                <li> <a href="../vistas/agregar_album.php">Nuevo album</a> </li>
+                <li> <a href="../vistas/agregar_album.php">Nuevo álbum</a> </li>
                 <li> <a href="../vistas/compartidos_conmigo.html">Compartidos conmigo</a></li>
-                <li><a href="../php/buscar_album.php">Buscar Album</a></li>
+                <li><a href="../php/buscar_album.php">Buscar álbum</a></li>
           </ul>
           <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
          
@@ -64,24 +62,25 @@ $id=$_SESSION["id"];
 
 <div class="formulario" >
 
-    <div class="container pt-4" style="  padding: auto";>
+    <div class="container pt-4" style="  padding: auto">
 
     <form action="../php/aa.php" method="GET"  class="validated">
     
     <input type="text" hidden="true" id="id_u" class="form-control"  name="id_usuario" placeholder="id" value="<?php echo $id;?>">
     <div class="form-group">
 
-      <label for="">Ingresa nombre para el album</label>
-      <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+      <label for="">Ingresa nombre para el álbum</label><br>
+      <input type="text"  name="nombre" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" title="Solo palabras Ejemplo: nombreÁlbum " required>
     </div>
     <div class="form-group">
-      <label for="">Descripción</label>
+      <label for="">Descripción</label><br>
       <input type="text-area"  class="form-control" name="descripcion" placeholder="Descripcion" required>
     </div>
       
 
     <div class="botones">
-      <input type="submit" class="btn btn-primary btn-lg" value="Crear" >
+      <input type="submit" class="" value="Crear" >
+       <a href="../vistas/mis_albumes.html" class="btncancelar" value="Cancelar" >Cancelar</a>
       <br><br>
     </div>
   </div>
