@@ -3,10 +3,22 @@
 const $seleccionArchivos = document.querySelector("#seleccionArchivos"),
   $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
 
+
+
 // Escuchar cuando cambie
 $seleccionArchivos.addEventListener("change", () => {
   // Los archivos seleccionados, pueden ser muchos o uno
+   var fileInput = document.getElementById('seleccionArchivos');
+    var filePath = fileInput.value;
   const archivos = $seleccionArchivos.files;
+   var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+
+    if(!allowedExtensions.exec(filePath)){
+        alert('Por favor seleccione archivos de tipo .jpeg/.jpg/.png/.gif unicamente.');
+        fileInput.value = '';
+        return false;
+    }
+    
   // Si no hay archivos salimos de la función y quitamos la imagen
   if (!archivos || !archivos.length) {
     $imagenPrevisualizacion.src = "";
@@ -18,4 +30,5 @@ $seleccionArchivos.addEventListener("change", () => {
   const objectURL = URL.createObjectURL(primerArchivo);
   // Y a la fuente de la imagen le ponemos el objectURL
   $imagenPrevisualizacion.src = objectURL;
+
 });

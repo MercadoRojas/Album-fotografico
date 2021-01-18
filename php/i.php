@@ -1,7 +1,7 @@
 <?php
 include ("conexion_bd.php");
-$usuario= $_GET['correo'];
-$password=$_GET['password'];
+$usuario= $_POST['correo'];
+$password=$_POST['password'];
 
 if (isset($usuario)) {
  
@@ -24,7 +24,7 @@ if (isset($usuario)) {
 		header("location:../vistas/mis_albumes.html");
 	}
 	else{
-		header("location:../vistas/ingresar.php");
+		print "<script>alert(\"Error en tus credenciales\");window.location='../vistas/ingresar.php';</script>";
 	}
 }
 else{

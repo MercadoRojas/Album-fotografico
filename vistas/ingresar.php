@@ -4,7 +4,7 @@ session_start();
  
 // Verificar sí hay un usuario logeado
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location:../vistas/index.php");
+    header("location:../vistas/mis_albumes.html");
     exit;
 }
 
@@ -17,12 +17,13 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar </title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+    <!-- Latest compiled and minified CSS -->
+
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/style.css">
 
     <link rel="stylesheet" href="../css/mis_albumes.css">
+        <link rel="stylesheet" href="../css/style.css">
+  
 
 </head>
 
@@ -49,19 +50,22 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     <div class="container pt-4" style="padding: auto";>
        
       
-    <form action="../php/i.php" method="GET"   class="validated">
+    <form action="../php/i.php" method="POST"   class="validated">
    
      <div class="form-group" >
       <label for="">Correo:</label>
-      <input type="email"  class="form-control" name="correo" placeholder="correo@correo.com" required>
+      <br>
+     <input type="text"  class="form-control" name="correo" placeholder="correo@correo.com"  pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}" title="Ejemplo: correo@correo.com" /> 
+
     </div>
     <div class="form-group">
-      <label for="">Contraseña:</label>
-      <input type="password"  class="form-control" name="password" placeholder="Contraseña" required>
+      <label for="">Contraseña:</label><br>
+      <input type="password"  class="form-control" name="password" placeholder="Contraseña" pattern="[A-Za-z0-9!?-]{8,12}" 
+        title="la contraseña debe entre 8 y 12 caracteres" required>
     </div>
 
     <div class="botones">
-      <input type="submit" class="btn btn-primary btn-lg" name="Ingresar" value="Ingresar">
+      <input type="submit" name="Ingresar" value="Ingresar">
 
     </div>
 

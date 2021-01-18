@@ -26,7 +26,7 @@ $query = $con->query($sql1);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Colaboradores </title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     
   
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -43,50 +43,49 @@ $query = $con->query($sql1);
   }
 </style>
 <body>
-     <header>
+<header>
         <div id="logo">
 
             <img src="../css/img/logo.png" alt="LOGO">
 
-            <h4>Album Familiar</h4>
+            <h4>Álbum Familiar</h4>
         </div>
 
         <div id="Titulo">
-            <h1>Modificar miembros y permisos de álbum</h1>
+            <h1>Modificar privilegios</h1>
         </div>
 
         <div id="Usuario">
             <img src="../css/img/usuario.svg" alt="Foto perfil" id="foto_p">
-            <h5  id="alias_usuario">Usuario</h5>
+            <h5 id="alias_usuario">Nombre usuario</h5>
             <label for="btn_opciones"><img src="../css/img/editar.png" alt="Opciones"></label>
             <input type="checkbox" name="btn_opciones" id="btn_opciones">
             <ul id="opciones">
-                 <li><a href="../php/perfilEditar.php"> Perfil</a></li>
-                <li> <a href="../php/salir.php"> Salir</a> </li>
-       
-       
-              </ul>
-        </div>
+ 
+                <li> <a href="../php/perfilEditar.php"> Perfil</a></li>
+                <li> <a href="../php/salir.php">Salir</a></li>
 
+            </ul>
+        </div>
 
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
-          <ul>
-            <li> <a href="../vistas/mis_albumes.html" > Mis albumes </a></li>
-                <li> <a href="../vistas/agregar_album.php">Nuevo album</a> </li>
+            <ul>
+            <li> <a href="../vistas/mis_albumes.html" > Mis álbumes </a></li>
+                <li> <a href="../vistas/agregar_album.php">Nuevo álbum</a> </li>
                 <li> <a href="../vistas/compartidos_conmigo.html">Compartidos conmigo</a></li>
-                <li><a href="../php/buscar_album.php">Buscar Album</a></li>
-    
-          </ul>
-          <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
-         
-    
+                <li><a href="../php/buscar_album.php">Buscar álbum</a></li>
+
+            </ul>
+            <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
+
+
         </section>
     </header>
     <br><br><br><br>
         <div class="formulario_p">
       
-<div  class="container pt-4" style="  padding: auto">
+
 
       <h2 style=" color: rgb(224, 218, 218)">Nombre de album: <?php echo $nombre?> </h2>
     <form action="../php/aacP.php" method="GET"  class="form-inline">
@@ -94,24 +93,24 @@ $query = $con->query($sql1);
       <input type="text"  id="id_u" class="form-control "   name="nombre" placeholder="id" hidden="true" value="<?php echo $nombre?>">
 
       <input type="text" hidden="true"  id="id_u" class="form-control"  name="id_a" placeholder="id"  value="<?php echo $id_a;?>">
-    <div class="form-group">
+    <div class="aliasb">
 
       <label style=" color: rgb(224, 218, 218)">Ingresa alias de usuario:&nbsp;</label>
-      <input type="text" class="form-control" name="alias" placeholder="alias" required>
+      <input type="text" class="" name="alias" placeholder="alias" required pattern="^[a-zA-Z1-9]*" title="Solo lestras y números, sin acentos ni espacios">
    &nbsp;
-      <input type="submit" class="btn btn-primary btn-md" name="Bucar Colaborador" value="Buscar usuario" >
+      <input type="submit" class="" name="Bucar Colaborador" value="Buscar usuario" >
       <br><br>
     </div>
  
 </form>
+<br>
 
-
-  <table class="table table-bordered text-white">
+  <table class="tablaU text-white">
     <tr>
     <th>Usuario</th>
     <th>Privilegios</th>
     <th>Eliminar</th>
-    <th>Agregar Privilegios</th>
+    <th>Modificar Privilegios</th>
     </tr>
      <?php while ($r=$query->fetch_array()):?>
       <tr>
@@ -155,25 +154,24 @@ $query = $con->query($sql1);
         </td>
         
         <td>
-       <a href="../php/eliminarColaborador.php?id=<?php echo $r['id_usuario']."&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-danger" title="Eliminar" data-toggle="tooltip">Eliminar</a>
+       <a href="../php/eliminarColaborador.php?id=<?php echo $r['id_usuario']."&id_a=".$id_a."&nombre=".$nombre;?>" class="btnEliminar" title="Eliminar" data-toggle="tooltip">Eliminar</a>
 
         </td>
         <td>
-           <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=1&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-success" title="agregarFoto" data-toggle="tooltip">Agregar Fotos</a>
+           <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=1&id_a=".$id_a."&nombre=".$nombre;?>" class="btnAgregarFotos" title="agregarFoto" data-toggle="tooltip">Agregar Fotos</a>
 
-            <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-danger" title="EliminarFoto" data-toggle="tooltip">Eliminar Fotos</a>
+            <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;?>" class="btnEliminar" title="EliminarFoto" data-toggle="tooltip">Eliminar Fotos</a>
 
-             <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=3&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-primary" title="TodosPriv" data-toggle="tooltip">Ambos privilegios</a>
+             <a href="../php/privilegiosC.php?id_u=<?php echo $r['id_usuario']."&permisos=3&id_a=".$id_a."&nombre=".$nombre;?>" class="btnTodos" title="TodosPriv" data-toggle="tooltip">Ambos privilegios</a>
 
         </td>
       </tr>
       <?php  endwhile;?>
   </table>
- <br><br>
+ <br>
 </div>
 </div>
 
 </body>
 <script src="../js/sesion.js"></script>
 </html>
-

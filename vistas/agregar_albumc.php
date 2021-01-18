@@ -1,12 +1,13 @@
 <?php
-// Inicializar sesión
+// inicializar la sesion 
 session_start();
+ 
  include ("../php/conexion_bd.php");
+
 
 // Chequeo de un usuario logeado
 
 $id=$_SESSION["id"];
-
 $id_a=$_GET['id_album'];
 $nombre=$_GET['nombre'];
 
@@ -16,98 +17,84 @@ $query = $con->query($sql1);
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Colaboradores </title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Agregar Colaboradores</title>
+      
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/mis_albumes.css">
- 
-</head>
-<style type="text/css">
-  #id_u{
-    display: hidden; 
 
-  }
-  th{
-    background-color: rgb(95, 158, 160);
-  }
+</head>
+<style>
 
 </style>
-
 <body>
-     <header>
+    <header>
         <div id="logo">
 
             <img src="../css/img/logo.png" alt="LOGO">
 
-            <h4>Album Familiar</h4>
+            <h4>Álbum Familiar</h4>
         </div>
 
         <div id="Titulo">
-            <h1>Bienvenido</h1>
+            <h1>Colaboradores álbum</h1>
         </div>
 
         <div id="Usuario">
             <img src="../css/img/usuario.svg" alt="Foto perfil" id="foto_p">
-            <h5  id="alias_usuario">Usuario</h5>
+            <h5 id="alias_usuario">Nombre usuario</h5>
             <label for="btn_opciones"><img src="../css/img/editar.png" alt="Opciones"></label>
             <input type="checkbox" name="btn_opciones" id="btn_opciones">
             <ul id="opciones">
-                 <li><a href="../php/perfilEditar.php"> Perfil</a></li>
-                <li> <a href="../php/salir.php"> Salir</a> </li>
-       
-       
-              </ul>
-        </div>
+ 
+                <li> <a href="../php/perfilEditar.php"> Perfil</a></li>
+                <li> <a href="../php/salir.php">Salir</a></li>
 
+            </ul>
+        </div>
 
         <input type="checkbox" name="btn_menu" id="btn_menu">
         <section id="menu">
-          <ul>
-           <li> <a href="../vistas/mis_albumes.html" > Mis albumes </a></li>
-                <li> <a href="../vistas/agregar_album.php">Nuevo album</a> </li>
+            <ul>
+                <li> <a href="../vistas/mis_albumes.html" > Mis albumes </a></li>
+                <li> <a href="../vistas/agregar_album.php">Nuevo álbum</a> </li>
                 <li> <a href="../vistas/compartidos_conmigo.html">Compartidos conmigo</a></li>
-                <li><a href="../php/buscar_album.php">Buscar Album</a></li>
-    
-          </ul>
-          <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
-         
-    
+                <li><a href="../php/buscar_album.php">Buscar álbum</a></li>
+
+            </ul>
+            <label for="btn_menu"><img src="../css/img/flecha.png" alt="Flecha"></label>
+
+
         </section>
     </header>
+
     <br><br><br><br>
     <div class="formulario_p">
       
-<div  class="container pt-4" style="  padding: auto">
 
 
-      <h2 style=" color: rgb(224, 218, 218)">Nombre de album: <?php echo $nombre?> </h2>
+      <h2 style=" color: rgb(224, 218, 218)">Nombre de álbum: <?php echo $nombre?> </h2>
     <form action="../php/aac.php" method="GET"  class="form-inline">
    
       <input type="text"  id="id_u" class="form-control "   name="nombre" placeholder="id" hidden="true" value="<?php echo $nombre?>">
 
       <input type="text" hidden="true"  id="id_u" class="form-control"  name="id_a" placeholder="id"  value="<?php echo $id_a;?>">
-    <div class="form-group">
+    <div class="aliasb">
       
       <label style=" color: rgb(224, 218, 218)">Ingresa alias de usuario:&nbsp;</label>
-      <input type="text" class="form-control" name="alias" placeholder="alias" required>
-      &nbsp;
-      <input type="submit" class="btn btn-primary btn-md" value="Agregar Colaborador" >   
-      
-       </div>
- 
+      <input type="text"  class="form-control" name="alias" placeholder="Alias" pattern="^([a-z]+[0-9]{0,2}){5,12}$" required title="Solo letras minúsculas 5 y 12 caracteres y opcionalmente dos numeros finales. Ejemplo: usuario01"  required>
+      <input type="submit" class="" value="Agregar usuarios" >
+
 </form>
 
 <br>
-  <table class="table table-bordered text-white">
+
+  <table class="tablaU text-white">
     <tr>
     <th>Usuario</th>
     <th>Privilegios</th>
@@ -149,16 +136,17 @@ $query = $con->query($sql1);
          ?>
         </td>
         
-        <td>
-       <a href="../php/eliminar.php?id=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;;?>" class="btn btn-danger" title="Eliminar" data-toggle="tooltip">Eliminar</a>
+        <td >
+       <a href="../php/eliminar.php?id=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;;?>" class="btnEliminar" title="Eliminar" data-toggle="tooltip">Eliminar</a>
 
         </td>
         <td>
-           <a href="../php/privilegios.php?id_u=<?php echo $r['id_usuario']."&permisos=1&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-success" title="agregarFoto" data-toggle="tooltip">Agregar Fotos</a>
+           <a href="../php/privilegios.php?id_u=<?php echo $r['id_usuario']."&permisos=1&id_a=".$id_a."&nombre=".$nombre;?>" class="btnAgregarFotos" title="agregarFoto" >Agregar Fotos</a>
 
-            <a href="../php/privilegios.php?id_u=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-danger" title="EliminarFoto" data-toggle="tooltip">Eliminar Fotos</a>
+            <a href="../php/privilegios.php?id_u=<?php echo $r['id_usuario']."&permisos=2&id_a=".$id_a."&nombre=".$nombre;?>" class="btnEliminar" title="EliminarFoto" >Eliminar Fotos</a>
 
-             <a href="../php/privilegios.php?id_u=<?php echo $r['id_usuario']."&permisos=3&id_a=".$id_a."&nombre=".$nombre;?>" class="btn btn-primary" title="TodosPriv" data-toggle="tooltip">Ambos privilegios</a>
+             <a href="../php/privilegios.php?id_u=<?php echo $r['id_usuario']."&permisos=3&id_a=".$id_a."&nombre=".$nombre;?>" class="btnTodos" title="TodosPriv" >Ambos privilegios</a>
+
 
         </td>
       </tr>
